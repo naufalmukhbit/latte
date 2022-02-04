@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 import { MacButtons } from "components";
+import { useTheme } from "next-themes";
 
 interface FakeWindowProps {
 	scroll: number;
 }
 
 export default function FakeWindow({ scroll }: FakeWindowProps) {
-  const [windowHeight, setWindowHeight] = useState("60vh");
-  const [windowWidth, setWindowWidth] = useState("65vh");
+	const [windowHeight, setWindowHeight] = useState("60vh");
+	const [windowWidth, setWindowWidth] = useState("65vh");
+	const { theme, setTheme } = useTheme();
 
 	useEffect(() => {
 		let scrollPercentage: number = ((scroll > 800 ? 800 : scroll) * 100) / 800;
 		let windowX = countRangePercentage(65, 100, scrollPercentage);
-    setWindowWidth(`${windowX}vw`);
+		setWindowWidth(`${windowX}vw`);
 		let windowY = countRangePercentage(60, 100, scrollPercentage);
-    setWindowHeight(`${windowY}vh`);
+		setWindowHeight(`${windowY}vh`);
 	}, [scroll]);
 
 	const countRangePercentage = (b: number, t: number, p: number) => {
@@ -29,10 +31,16 @@ export default function FakeWindow({ scroll }: FakeWindowProps) {
 	return (
 		<div className="h-screen flex items-center justify-center sticky top-0">
 			<div
-				className="flex items-center justify-center bg-white drop-shadow-xl rounded-xl relative"
+				className="flex items-center justify-center bg-white dark:bg-slate-800 drop-shadow-xl rounded-xl relative transition"
 				style={{ height: windowHeight, width: windowWidth }}
 			>
 				<MacButtons />
+				<button
+					className="absolute top-0 right-0 p-2"
+					onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+				>
+					toggle
+				</button>
 				{scroll < 1100 ? (
 					<span
 						className="text-6xl font-mono whitespace-nowrap"
