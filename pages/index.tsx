@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Card, FakeWindow } from "components";
+import { Card, FakeWindow, HomeFooter } from "components";
 
 const Home: NextPage = () => {
 	type snippetData = {
@@ -166,12 +166,7 @@ const Home: NextPage = () => {
 							{renderSites(tempSnippets)}
 						</div>
 					</div>
-					{/* You can read my blog posts... */}
-					{/* ...or do something else */}
-					{/* Please give these little projects of mine a visit! */}
-					<div className="w-full max-w-screen-md self-center flex flex-col gap-4 py-4">
-						Follow me on the internet!
-					</div>
+					<HomeFooter />
 				</div>
 			</div>
 		</div>
