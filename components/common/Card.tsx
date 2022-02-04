@@ -19,7 +19,7 @@ export default function Card({
 
 	useEffect(() => {
 		let newCardStyle =
-			"bg-white border-2 rounded-lg" +
+			"bg-white rounded-lg dark:bg-slate-800 ring-1 ring-slate-900/5 shadow-xl" +
 			(!fluid ? " p-4" : "") +
 			(clickable ? " hover: cursor-pointer" : "") +
 			(className ? " " + className : "");

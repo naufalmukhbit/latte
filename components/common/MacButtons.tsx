@@ -17,7 +17,7 @@ export default function MacButtons() {
   }, [patternCount]);
 
 	return (
-		<div className="absolute flex flex-row top-3 left-4 gap-2">
+		<div className="flex flex-row gap-2">
 			<div
 				className="bg-red-400 rounded-full w-3.5 h-3.5 shadow-inner cursor-pointer hover:bg-red-500 transition-colors"
 				onClick={() => {

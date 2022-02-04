@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { MacButtons } from "components";
-import { useTheme } from "next-themes";
+import { DarkModeToggle, MacButtons } from "components/common";
 
 interface FakeWindowProps {
 	scroll: number;
@@ -9,7 +8,6 @@ interface FakeWindowProps {
 export default function FakeWindow({ scroll }: FakeWindowProps) {
 	const [windowHeight, setWindowHeight] = useState("60vh");
 	const [windowWidth, setWindowWidth] = useState("65vh");
-	const { theme, setTheme } = useTheme();
 
 	useEffect(() => {
 		let scrollPercentage: number = ((scroll > 800 ? 800 : scroll) * 100) / 800;
@@ -31,16 +29,16 @@ export default function FakeWindow({ scroll }: FakeWindowProps) {
 	return (
 		<div className="h-screen flex items-center justify-center sticky top-0">
 			<div
-				className="flex items-center justify-center bg-white dark:bg-slate-800 drop-shadow-xl rounded-xl relative transition"
+				className={`flex items-center justify-center bg-white dark:bg-slate-800 drop-shadow-xl relative transition ${scroll < 800 ? "rounded-xl" : ""}`}
 				style={{ height: windowHeight, width: windowWidth }}
 			>
-				<MacButtons />
-				<button
-					className="absolute top-0 right-0 p-2"
-					onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-				>
-					toggle
-				</button>
+				<div className="absolute top-3 left-4 right-4 flex flex-row justify-between items-center">
+					<MacButtons />
+					<span className="text-sm">Naufal&apos;s Site</span>
+					<div className={scroll < 1301 ? "visible" : "invisible"}>
+						<DarkModeToggle />
+					</div>
+				</div>
 				{scroll < 1100 ? (
 					<span
 						className="text-6xl font-mono whitespace-nowrap"
