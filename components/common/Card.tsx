@@ -6,6 +6,7 @@ interface CardProps {
 	fluid?: boolean;
 	clickable?: boolean;
 	onClick?: () => void;
+	onHover?: (hover: boolean) => void;
 }
 
 export default function Card({
@@ -14,6 +15,7 @@ export default function Card({
 	fluid,
 	clickable,
 	onClick,
+	onHover,
 }: CardProps) {
 	const [cardStyle, setCardStyle] = useState("");
 
@@ -31,6 +33,8 @@ export default function Card({
 		<div
 			className={cardStyle}
 			onClick={onClick}
+			onMouseEnter={() => onHover && onHover(true)}
+			onMouseLeave={() => onHover && onHover(false)}
 		>
 			{children}
 		</div>
