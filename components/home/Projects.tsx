@@ -94,7 +94,7 @@ export default function Projects() {
 		<div className="py-20 flex justify-center">
 			<div className="flex flex-col justify-center items-center gap-16 w-8/12">
 				<div className="text-5xl font-bold text-center leading-snug">
-					Give these little projects
+					...or give these little projects
 					<br />
 					of mine a visit!
 				</div>

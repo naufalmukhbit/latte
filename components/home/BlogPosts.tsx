@@ -28,13 +28,15 @@ export default function BlogPosts() {
 
 	const renderBlogPostCard = (snippet: snippetData) => {
 		return (
-			<Card className="relative group flex flex-col gap-2 cursor-pointer hover:scale-110 duration-300 transition-all h-36 hover:h-44 hover:z-10">
-				<strong>{snippet.title}</strong>
-				<span className="leading-6 line-clamp-3">{snippet.content}</span>
-				<a className="absolute bottom-4 text-xs opacity-0 group-hover:opacity-100 transition text-gray-500 dark:text-slate-300">
-					Click to read more...
-				</a>
-			</Card>
+			<a href={snippet.url} target="_blank" rel="noreferrer">
+				<Card clickable className="relative group flex flex-col gap-2 hover:scale-110 duration-300 transition-all h-36 hover:h-44 hover:z-10">
+					<strong>{snippet.title}</strong>
+					<span className="leading-6 line-clamp-3">{snippet.content}</span>
+					<div className="absolute bottom-4 text-xs opacity-0 group-hover:opacity-100 transition text-gray-500 dark:text-slate-300">
+						Click to read more...
+					</div>
+				</Card>
+			</a>
 		);
 	};
 
@@ -48,9 +50,11 @@ export default function BlogPosts() {
 						{snippets[2] && renderBlogPostCard(snippets[2])}
 
 						{snippets.length > 2 && (
-							<Card className="cursor-pointer hover:scale-105 duration-300 transition-all text-gray-500 dark:text-slate-500">
-								See more posts...
-							</Card>
+							<a href="https://paymukh.wordpress.com" target="_blank" rel="noreferrer">
+								<Card className="cursor-pointer hover:scale-105 duration-300 transition-all text-gray-500 dark:text-slate-500">
+									See more posts...
+								</Card>
+							</a>
 						)}
 					</>
 				) : (
@@ -63,7 +67,7 @@ export default function BlogPosts() {
 	};
 
 	return (
-		<div className="py-20 flex justify-center">
+		<div className="py-20 flex justify-center bg-black/5 dark:bg-white/5">
 			<div className="flex flex-row justify-center items-center gap-16 w-8/12">
 				<div className="text-5xl font-bold text-right leading-snug basis-1/2">
 					You can read my
