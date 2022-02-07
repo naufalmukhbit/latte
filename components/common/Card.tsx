@@ -1,4 +1,9 @@
 import { ReactNode, useEffect, useState } from "react";
+interface BasicCardProps {
+	children?: ReactNode;
+	className?: string;
+	fluid?: boolean;
+}
 
 interface CardProps {
 	children?: ReactNode;
