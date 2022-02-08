@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import projectSosmedLight from "assets/project_sosmed_logo.png";
 import projectSosmedDark from "assets/project_sosmed_logo_dark.png";
 
-import onlineShopLogo from "assets/onlineShop_logo.png";
+import onlineShopLogo from "assets/onlineshop_logo.png";
 import Image from "next/image";
 
 type imageData = {
