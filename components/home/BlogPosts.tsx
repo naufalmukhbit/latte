@@ -36,9 +36,9 @@ export default function BlogPosts() {
 			<a href={snippet.url} target="_blank" rel="noreferrer">
 				<Card clickable className="relative group flex flex-col gap-2 hover:scale-110 duration-300 transition-all h-36 hover:h-44 hover:z-10">
 					<span className="flex flex-row items-center gap-2">
-						<strong>{snippet.title}</strong>
+						<strong className="truncate max-w-[70%]">{snippet.title}</strong>
 						<span className="text-xs opacity-40">&middot;</span>
-						<small className="text-xs opacity-40">
+						<small className="text-xs opacity-40 whitespace-nowrap">
 							{snippet.date.format("MMM DD, YYYY")}
 						</small>
 					</span>
@@ -53,9 +53,9 @@ export default function BlogPosts() {
 
 	const renderBlogPosts = (snippets: snippetData[]) => {
 		return (
-			<div className="h-[35rem] rounded-lg p-4 ml-4 basis-1/2 flex flex-col gap-3 w-3/5 bg-gray-50 dark:bg-slate-900">
+			<div className="h-[35rem] max-h-[37rem] basis-1/2 w-3/5">
 				{snippets && snippets.length > 0 ? (
-					<>
+					<div className="flex flex-col gap-3 rounded-lg p-4 ml-4 bg-gray-50 dark:bg-slate-900">
 						{snippets[0] && renderBlogPostCard(snippets[0])}
 						{snippets[1] && renderBlogPostCard(snippets[1])}
 						{snippets[2] && renderBlogPostCard(snippets[2])}
@@ -67,7 +67,7 @@ export default function BlogPosts() {
 								</Card>
 							</a>
 						)}
-					</>
+					</div>
 				) : (
 					<div className="h-[35rem] flex justify-center items-center">
 						No Posts Yet
