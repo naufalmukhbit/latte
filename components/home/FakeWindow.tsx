@@ -39,7 +39,7 @@ export default function FakeWindow({ scroll }: FakeWindowProps) {
 						<MacButtons />
 					</div>
 					<span className="text-sm">Naufal&apos;s Site</span>
-					<div className={`${scroll < 1301 ? "visible" : "invisible"} w-24 flex flex-row justify-end items-end p-px`}>
+					<div className={`${scroll < 1301 ? "visible" : "invisible"} w-24 flex flex-row justify-end items-end p-px pr-0`}>
 						<DarkModeToggle />
 					</div>
 				</div>

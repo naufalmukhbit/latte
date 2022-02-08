@@ -1,15 +1,10 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Card, Navbar } from "components/common";
+import { Navbar } from "components/common";
 import { FakeWindow, HomeFooter, Projects, BlogPosts } from "components";
 
 const Home: NextPage = () => {
-  type snippetData = {
-    title: string;
-    content: string;
-  };
-
   const [scrollY, setScrollY] = useState(0);
   const [innerHeight, setInnerHeight] = useState(0);
 
