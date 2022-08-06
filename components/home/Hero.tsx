@@ -55,25 +55,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-// export default function ParallaxHero() {
-//   useEffect(() => {
-//     const container = document.getElementById('px-container');
-//     if (container) {
-//       container.style.height = window.innerHeight + 'px';
-//     }
-//   }, []);
-
-//   return (
-//     <ParallaxBanner
-//       id="px-container"
-//       layers={[
-//         {
-//           children: <Hero />,
-//           speed: -50,
-//           expanded: false,
-//         },
-//       ]}
-//     />
-//   )
-// }

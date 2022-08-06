@@ -13,7 +13,7 @@ export default function Bio(props: { style?: CSSProperties }) {
 					src={profilePic}
 					width={100}
 					height={100}
-					alt="Author's Pic"
+					alt="Author&apos;s Pic"
 					className="rounded-full"
 				/>
 				<span>

@@ -30,14 +30,12 @@ const Home: NextPage = () => {
 			setInnerHeight(window.innerHeight);
 		}
 		setTheme("light");
-		console.log(aboutRef);
-		console.log(blogRef);
 	}, []);
 
 	useEffect(() => {
 		let pointer = innerHeight;
 		let currentHeight = aboutRef?.current?.clientHeight;
-		setBdyAbout([pointer, pointer + calculateOff(currentHeight)]);
+		setBdyAbout([pointer - 10, pointer + calculateOff(currentHeight)]);
 
 		pointer += calculateOff(currentHeight);
 		currentHeight = blogRef?.current?.clientHeight;

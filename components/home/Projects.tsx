@@ -47,9 +47,9 @@ const ProjectCard = ({ key, data }: { key: number; data?: projectData }) => {
 							/>
 						</div>
 					)}
-					<div className="flex flex-col justify-between p-6 absolute inset-0 duration-300 bg-black/80 backdrop-blur-sm rounded-lg text-white opacity-0 group-hover:opacity-100">
+					<div className="flex flex-col justify-between p-6 absolute text-left inset-0 duration-300 bg-black/80 backdrop-blur-sm rounded-lg text-white opacity-0 group-hover:opacity-100">
 						<strong>{data.title}</strong>
-						<span className="leading-6 line-clamp-4 h-24">
+						<span className="leading-6 line-clamp-4 h-24 text-sm">
 							{data.content}
 						</span>
 						<a
