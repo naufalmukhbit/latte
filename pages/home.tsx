@@ -1,43 +1,20 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import bgPic from "assets/bw-c.png";
+import bgPic from "assets/bw-transparent.png";
 import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 import { useEffect, useState } from "react";
+import Hero from "components/home/Hero";
 
-const Hero = () => {
+const Home: NextPage = () => {
+  const [innerHeight, setInnerHeight] = useState(0);
+
   useEffect(() => {
-    const container = document.getElementById('bg-container');
-    if (container) {
-      container.style.height = window.innerHeight + 'px';
+    if (window) {
+      setInnerHeight(window.innerHeight)
     }
   }, []);
 
-  return (
-    <div className="relative">
-      <div id="bg-container" className="flex flex-col justify-end bg-black">
-        <Image id="bg-pic" src={bgPic} width={1000} height={1000} />
-      </div>
-      <div className="absolute top-40 h-60 px-8 flex flex-col justify-between">
-        <div>
-          <h1 id="general-kenobi" className="text-5xl font-bold pb-2">
-            Hello there.
-          </h1>
-          <h1 className="text-lg font-bold">
-            My name is Naufal. I'm a Web Developer. Welcome
-            to my website
-          </h1>
-        </div>
-        <small className="text-white/40 flex flex-col items-center">
-          Scroll up to continue...
-          <span className="animate-bounce">︿</span>
-        </small>
-      </div>
-    </div>
-  )
-}
-
-const Home: NextPage = () => {
   return (
 		<ParallaxProvider>
 			<Head>
@@ -53,11 +30,15 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<article className="text-center">
-        <Parallax speed={-50} opacity={[1.0, 1.0]}>
+        <Parallax
+          speed={-50}
+          startScroll={innerHeight * -1}
+          endScroll={innerHeight}
+        >
           <Hero />
         </Parallax>
         <Parallax>
-          <div className="bg-white text-black h-screen">
+          <div className="bg-white text-black h-[200vh]">
             Test
           </div>
         </Parallax>

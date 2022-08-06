@@ -10,9 +10,9 @@ export default function DarkModeToggle() {
 			className="cursor-pointer text-2xl flex flex-row items-center"
 			onClick={() => setTheme(theme === "light" ? "dark" : "light")}
 		>
-			<TiWeatherSunny className="mr-1" />
+			{/* <TiWeatherSunny className="mr-1" />
 			{theme === "light" ? <FaToggleOff /> : <FaToggleOn />}
-			<TiWeatherNight />
+			<TiWeatherNight /> */}
 		</div>
 	);
 }

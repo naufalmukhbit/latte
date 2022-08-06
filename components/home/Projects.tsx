@@ -2,7 +2,7 @@ import { Card } from "components/common";
 import { useTheme } from "next-themes";
 
 import Image from "next/image";
-import projects from "data/projects"
+import projects from "data/projects";
 
 type imageData = {
 	src: any;
@@ -19,14 +19,15 @@ type projectData = {
 	url?: string;
 };
 
-const ProjectCard = ({ data }: { data?: projectData }) => {
+const ProjectCard = ({ key, data }: { key: number; data?: projectData }) => {
 	const { theme } = useTheme();
 
 	return (
 		<Card
+			key={key}
 			fluid
 			clickable={data ? true : false}
-			className="group relative w-96 h-56"
+			className="group relative w-full h-full"
 		>
 			{data ? (
 				<>
@@ -64,7 +65,7 @@ const ProjectCard = ({ data }: { data?: projectData }) => {
 					</div>
 				</>
 			) : (
-				<div className="text-center flex items-center justify-center h-full bg-black/10 dark:bg-black/30 rounded-lg">
+				<div className="text-center flex items-center justify-center aspect-[12/7] bg-black/10 rounded-lg">
 					Coming soon...
 				</div>
 			)}
@@ -75,23 +76,24 @@ const ProjectCard = ({ data }: { data?: projectData }) => {
 export default function Projects() {
 	return (
 		<div className="py-20 flex justify-center">
-			<div className="flex flex-col justify-center items-center gap-16 w-8/12">
-				<div className="text-5xl font-bold text-center leading-snug">
+			<div className="flex flex-col justify-center items-center gap-16 w-full px-4 lg:w-8/12 lg:px-0">
+				<div className="lg:text-5xl 2xl:text-5xl xl:text-4xl text-3xl font-bold text-center leading-snug">
 					...or give these little projects
 					<br />
 					of mine a visit!
 				</div>
-				<div className="ml-4 flex flex-col gap-3">
-					<div className="flex flex-row gap-3">
-						<ProjectCard data={projects[0]} />
-						<ProjectCard data={projects[1]} />
-						<ProjectCard data={projects[2]} />
+				<div className="lg:ml-4 flex flex-col gap-3">
+					{/* <div className="flex flex-col lg:flex-row gap-3"> */}
+					<div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+						{(projects.length < 6
+							? [...projects, undefined, undefined]
+							: projects.slice(0, 6)
+						).map((item, index) => (
+							<ProjectCard key={index} data={item} />
+						))}
 					</div>
-					<div className="flex flex-row gap-3">
-						<ProjectCard data={projects[3]} />
-						<ProjectCard data={projects[4]} />
-						<ProjectCard data={projects[5]} />
-					</div>
+					{/* <div className="flex flex-col lg:flex-row gap-3">
+					</div> */}
 				</div>
 			</div>
 		</div>

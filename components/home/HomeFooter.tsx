@@ -1,11 +1,11 @@
 import {FaInstagram, FaTwitter, FaGithub, FaLinkedin, FaTelegramPlane, FaSpotify, FaReddit, FaEnvelope} from "react-icons/fa"
 
 export default function Footer() {
-  const iconStyle: string = "cursor-pointer text-slate-300 dark:text-gray-500 hover:text-gray-800 dark:hover:text-white transition";
+  const iconStyle: string = "cursor-pointer text-3xl md:text-4xl text-slate-300 hover:text-gray-800 transition";
 	return (
 		<div className="flex flex-col items-center py-16 gap-6">
       <span className="text-xl font-bold">Follow me on the internet!</span>
-      <div className="flex flex-row gap-4 text-4xl pt-2 pb-4">
+      <div className="flex flex-row gap-3 md:gap-4 text-4xl pt-2 pb-4">
         <a href="https://instagram.com/paymukh" target="_blank" rel="noreferrer">
           <FaInstagram className={iconStyle} />
         </a>

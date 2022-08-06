@@ -6,6 +6,7 @@ interface BasicCardProps {
 }
 
 interface CardProps {
+	key?: number;
 	children?: ReactNode;
 	className?: string;
 	fluid?: boolean;
@@ -15,6 +16,7 @@ interface CardProps {
 }
 
 export default function Card({
+	key,
 	children,
 	className,
 	fluid,
@@ -26,7 +28,7 @@ export default function Card({
 
 	useEffect(() => {
 		let newCardStyle =
-			"bg-white rounded-lg dark:bg-slate-800 ring-1 ring-slate-900/5 shadow-xl" +
+			"bg-white rounded-lg ring-1 ring-slate-900/5 shadow-xl" +
 			(!fluid ? " p-4" : "") +
 			(clickable ? " hover: cursor-pointer" : "") +
 			(className ? " " + className : "");
@@ -36,6 +38,7 @@ export default function Card({
 
 	return (
 		<div
+			key={key}
 			className={cardStyle}
 			onClick={onClick}
 			onMouseEnter={() => onHover && onHover(true)}

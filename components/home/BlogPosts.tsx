@@ -42,8 +42,8 @@ export default function BlogPosts() {
 							{snippet.date.format("MMM DD, YYYY")}
 						</small>
 					</span>
-					<span className="leading-6 line-clamp-3">{snippet.content}</span>
-					<div className="absolute bottom-4 text-xs opacity-0 group-hover:opacity-100 transition text-gray-500 dark:text-slate-300">
+					<span className="leading-6 line-clamp-3 text-left">{snippet.content}</span>
+					<div className="absolute bottom-4 text-xs opacity-0 group-hover:opacity-100 transition text-gray-500">
 						Click to read more...
 					</div>
 				</Card>
@@ -53,16 +53,16 @@ export default function BlogPosts() {
 
 	const renderBlogPosts = (snippets: snippetData[]) => {
 		return (
-			<div className="h-[35rem] max-h-[37rem] basis-1/2 w-3/5">
+			<div className="h-[35rem] max-h-[37rem] basis-1/2 w-full lg:w-3/5">
 				{snippets && snippets.length > 0 ? (
-					<div className="flex flex-col gap-3 rounded-lg p-4 ml-4 bg-gray-50 dark:bg-slate-900">
+					<div className="flex flex-col gap-3 rounded-lg p-4 lg:ml-4 bg-gray-50">
 						{snippets[0] && renderBlogPostCard(snippets[0])}
 						{snippets[1] && renderBlogPostCard(snippets[1])}
 						{snippets[2] && renderBlogPostCard(snippets[2])}
 
 						{snippets.length > 2 && (
 							<a href="https://paymukh.wordpress.com" target="_blank" rel="noreferrer">
-								<Card className="cursor-pointer hover:scale-105 duration-300 transition-all text-gray-500 dark:text-slate-500">
+								<Card className="cursor-pointer hover:scale-105 duration-300 transition-all text-gray-500">
 									See more posts...
 								</Card>
 							</a>
@@ -78,9 +78,9 @@ export default function BlogPosts() {
 	};
 
 	return (
-		<div className="py-20 flex justify-center bg-black/5 dark:bg-white/5">
-			<div className="flex flex-row justify-center items-center gap-16 w-8/12">
-				<div className="2xl:text-5xl xl:text-4xl text-3xl font-bold text-right leading-snug basis-1/2">
+		<div className="py-20 flex justify-center bg-black/5">
+			<div className="flex flex-col lg:flex-row justify-center items-center gap-16 w-full px-4 lg:w-8/12 lg:px-0">
+				<div className="2xl:text-5xl xl:text-4xl text-3xl font-bold text-center lg:text-right leading-snug basis-1/2">
 					You can read my
 					<br />
 					blog posts...

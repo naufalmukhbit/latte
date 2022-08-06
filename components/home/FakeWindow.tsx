@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { DarkModeToggle, MacButtons } from "components/common";
-import Image from "next/image";
-import profilePic from "assets/20220124_041835_0_cropped.jpg"
+import Bio from "./Bio";
 
 interface FakeWindowProps {
 	scroll: number;
@@ -31,7 +30,7 @@ export default function FakeWindow({ scroll }: FakeWindowProps) {
 	return (
 		<div className="h-screen flex items-center justify-center sticky top-0">
 			<div
-				className={`flex items-center justify-center bg-white dark:bg-slate-800 drop-shadow-xl relative transition ${scroll < 800 ? "rounded-xl" : ""}`}
+				className={`flex items-center justify-center bg-white drop-shadow-xl relative transition ${scroll < 800 ? "rounded-xl" : ""}`}
 				style={{ height: windowHeight, width: windowWidth }}
 			>
 				<div className="absolute top-3 left-4 right-4 flex flex-row justify-between items-center">
@@ -56,27 +55,16 @@ export default function FakeWindow({ scroll }: FakeWindowProps) {
 						Welcome to my website!
 					</span>
 				) : (
-					<div
-						className="flex flex-col justify-center items-center text-center w-2/5 gap-8"
-						style={{
-							transform: `translateY(${
-								scroll > 1200
-									? scroll <= 1300
-										? `${(scroll - 1300) * -1}px`
-										: 0
-									: "100px"
-							})`,
-							opacity: scroll > 1200 ? (scroll - 1200) / 100 : 0,
-						}}
-					>
-						<Image src={profilePic} width={100} height={100} alt="Author's Pic" className="rounded-full" />
-						<span>
-							Hello, my name is Naufal. I&apos;m a front-end software developer,
-							currently focusing on web and mobile apps development. Though only
-							have a year of work experience, I always try to improve my
-							skills to the limit every chance I get.
-						</span>
-					</div>
+					<Bio style={{
+						transform: `translateY(${
+							scroll > 1200
+								? scroll <= 1300
+									? `${(scroll - 1300) * -1}px`
+									: 0
+								: "100px"
+						})`,
+						opacity: scroll > 1200 ? (scroll - 1200) / 100 : 0,
+					}} />
 				)}
 			</div>
 		</div>
