@@ -36,7 +36,7 @@ const Hero = () => {
           </h1>
           <h1 className="text-lg font-bold">
             <span>
-              My name is Naufal. I'm a Web Developer.
+              My name is Naufal. I&apos;m a Web Developer.
             </span>
             {" "}
             <br className="hidden md:inline" />
