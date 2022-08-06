@@ -11,7 +11,7 @@ interface NavbarItemProps {
 
 const NavbarItem = ({ children, active, toItem }: NavbarItemProps) => {
 	return (
-		<span
+		<button
 			className={`${
 				active
 					? "font-bold border-b-2 border-b-white md:border-b-black"
@@ -20,7 +20,7 @@ const NavbarItem = ({ children, active, toItem }: NavbarItemProps) => {
 			onClick={toItem}
 		>
 			{children}
-		</span>
+		</button>
 	);
 };
 
@@ -74,11 +74,19 @@ export default function Navbar({
 	);
 
 	const expand = () => {
-		setExpanded(true);
+		let navbarEl = document.getElementById("mobile-navbar");
+		if (navbarEl) {
+			navbarEl.classList.remove("nav-col")
+			navbarEl.classList.add("nav-exp")
+		}
 	};
 
 	const collapse = () => {
-		setExpanded(false);
+		let navbarEl = document.getElementById("mobile-navbar");
+		if (navbarEl) {
+			navbarEl.classList.remove("nav-exp")
+			navbarEl.classList.add("nav-col")
+		}
 	};
 
 	return (
@@ -102,10 +110,8 @@ export default function Navbar({
 					onClick={expand}
 				/>
 				<span
-					className={`
-						translate-x-${
-							expanded ? "0" : "[100vw]"
-						} md:translate-x-0 flex flex-row justify-between gap-6 absolute inset-0 py-5 px-8 bg-black transition-all duration-300 ease-in-out md:p-0 md:bg-transparent md:relative`}
+					id="mobile-navbar"
+					className="nav-col flex flex-row justify-between gap-6 absolute inset-0 py-5 px-8 bg-black transition-all duration-300 ease-in-out md:p-0 md:bg-transparent md:relative"
 				>
 					{renderItems()}
 					<IoChevronForward

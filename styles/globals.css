@@ -19,3 +19,17 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.nav-col {
+  transform: translateX(100vw);
+}
+
+.nav-exp {
+  transform: translateX(0);
+}
+
+@media screen and (min-width: 768px) {
+  .nav-col {
+    transform: translateX(0);
+  }
+}
